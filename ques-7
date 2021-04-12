@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int countBit(int num){
+	int ans=0;
+	while(num>0){
+		ans += (num&1);
+		num = num>>1;
+	}
+	return ans;
+}
+vector<int>res;
+vector<int> solve(int n){
+	int i=0;
+	while(i <= n){
+		int bits = countBit(i);
+		res.push_back(bits);
+		i++;
+	}
+	return res;
+}
+int main(){
+	int n;
+	cin>>n;
+	solve(n);
+	for(auto ele:res){
+		cout << ele << " ";
+	}
+	cout<<endl;
+	return 0;
+}
